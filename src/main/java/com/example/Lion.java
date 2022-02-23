@@ -6,12 +6,6 @@ public class Lion {
 
     boolean hasMane;
 
-     Predator predator;
-
-    public Lion(Feline feline) {
-        this.predator = feline;
-    }
-
     public Lion(String sex) throws Exception {
         if ("Самец".equals(sex)) {
             hasMane = true;
@@ -22,9 +16,17 @@ public class Lion {
         }
     }
 
+   Feline feline;
+
+    public Lion(Feline feline)
+    {
+        this.feline = feline;
+    }
+
+
 
     public int getKittens() {
-        return predator.getKittens();
+        return feline.getKittens();
     }
 
     public boolean doesHaveMane() {
@@ -32,6 +34,6 @@ public class Lion {
     }
 
     public List<String> getFood() throws Exception {
-        return predator.getFood("Хищник");
+        return feline.getFood("Хищник");
     }
 }

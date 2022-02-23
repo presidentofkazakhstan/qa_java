@@ -14,18 +14,13 @@ import static org.junit.Assert.*;
 @RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
 
-    @Mock
-    Feline feline;
+
     @Test
-    public void getListEatMeat() {
+    public void getListEatMeat()  throws Exception {
+        Feline feline = new Feline();
         List<String> expected = List.of("Животные", "Птицы", "Рыба");
-        try {
-            Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-            List<String> actual = feline.eatMeat();
-            assertEquals(expected, actual);
-        } catch (Exception exception) {
-            System.out.println("Произошла ошибка!");
-        }
+        List<String> actual = feline.eatMeat();
+        assertEquals(expected, actual);
     }
 
     @Test

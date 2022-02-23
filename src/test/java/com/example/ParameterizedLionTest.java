@@ -1,4 +1,5 @@
 package com.example;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runner.RunWith;
@@ -22,20 +23,20 @@ public class ParameterizedLionTest {
         return new Object[][] {
                 {"Самец", true},
                 {"Самка", false},
-                {"Тест", false},
         };
     }
-//(expected = Exception.class)
+
     @Test
-    public void gethasManeLion() {
-        try {
+    public void gethasManeLion() throws Exception {
             Lion lion = new Lion(checkedMane);
-            boolean actual = lion.hasMane;
+            boolean actual = lion.doesHaveMane();
             assertEquals(expected, actual);
-        } catch (Exception exception) {
-            System.out.println("Произошла ошибка!");
-        }
     }
 
-
+    @Test(expected = Exception.class)
+    public void getHasManeLionWithException() throws Exception {
+        Lion lion = new Lion("TEST");
+        boolean actual = lion.hasMane;
+        assertEquals(expected, actual);
+    }
 }
