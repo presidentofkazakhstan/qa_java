@@ -19,7 +19,7 @@ public class LionTest {
 
     @Test
     public void getKittens() throws Exception {
-        Lion lion = new Lion(feline);
+        Lion lion = new Lion(feline,true);
         int actual = lion.getKittens();
         int expected = 1;
         assertEquals(expected, actual);
@@ -29,7 +29,7 @@ public class LionTest {
     @Test
     public void getListFoodForLion() throws Exception {
         List<String> expected = List.of("Животные", "Птицы", "Рыба");
-        Lion lion = new Lion(feline);
+        Lion lion = new Lion(feline,true);
         List<String> actual = lion.getFood();
         assertEquals(expected, actual);
     }

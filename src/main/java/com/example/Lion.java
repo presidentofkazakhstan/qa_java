@@ -18,9 +18,10 @@ public class Lion {
 
    Feline feline;
 
-    public Lion(Feline feline)
+    public Lion(Feline feline,boolean hasMane)
     {
         this.feline = feline;
+        this.hasMane = hasMane;
     }
 
 
