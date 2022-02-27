@@ -11,7 +11,7 @@ public class ParameterizedLionTest {
 
       String checkedMane;
       boolean expected;
-
+      Feline feline = new Feline();
 
     public ParameterizedLionTest(String checkedMane,boolean expected) {
         this.checkedMane = checkedMane;
@@ -28,14 +28,14 @@ public class ParameterizedLionTest {
 
     @Test
     public void gethasManeLion() throws Exception {
-            Lion lion = new Lion(checkedMane);
+            Lion lion = new Lion(checkedMane, feline);
             boolean actual = lion.doesHaveMane();
             assertEquals(expected, actual);
     }
 
     @Test(expected = Exception.class)
     public void getHasManeLionWithException() throws Exception {
-        Lion lion = new Lion("TEST");
+        Lion lion = new Lion("TEST", feline);
         boolean actual = lion.hasMane;
         assertEquals(expected, actual);
     }
